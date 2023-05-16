@@ -4,32 +4,76 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - PrintSite</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PrintSite.styles.css" asp-append-version="true" />
+
 </head>
-<body>
+<body class="main">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PrintSite</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
+        <div class="row container" style="margin-bottom:1%">
+            <div class="row nopad languages" style="padding: 0 15px;">
+                <a class="pull-right" href="/RU">RU</a>
+                <span class="pull-right bluebar">|</span>
+                <a class="pull-right" href="/">עברית</a>
+                <partial class="pull-right" name="_LoginPartial" />
+            </div>
+            <div class="col-sm-12 nopad">
+                <img src="~/img/sitelogo.png"/>
+            </div>
+        </div>
+
+        <div class="row container row-eq-height ">
+            <div class="hidden-sm col-md-3 nopad">
+                <div class="box-title text-center bluebox">
+                    <h3><a href="/ru" style="border-bottom: 1px dotted;">Товары</a></h3>
                 </div>
             </div>
-        </nav>
+            <div class="col-sm-12 col-md-9 nopad">
+
+                <nav class="">
+                    <div class="nav pull-left topNavReg">
+
+                        <ul class="topMenu topMenuReg pull-left menus">
+                            <li class="first">
+                                <a href="/ru" title="Главная страница">
+                                    <i class="fa fa-home"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/ru/Home/Terms" title="Условия использования">
+                                    <i class="fa fa-angle-right"></i>
+                                    <span>Условия использования</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/ru/Home/About" title="О компании">
+                                    <i class="fa fa-angle-right"></i>
+                                    <span>О компании</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/ru/Home/Price" title="Запрос цен">
+                                    <i class="fa fa-angle-right"></i>
+                                    <span>Запрос цен</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/ru/Home/Contact" title="Связаться с нами">
+                                    <i class="fa fa-angle-right"></i>
+                                    <span>Связаться с нами</span>
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
