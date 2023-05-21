@@ -1,10 +1,21 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer ViewLocalizer
+@model List<Product>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="mainbody row container">
     <div class="col-sm-3 sideMenu Reg body">
         <ul class="body menus">
+            @foreach(var item in Model)
+            {
+                <li>
+                    <a title="@item.Description" href="~/Product/@item.Id">
+                        <span class="menutext">@item.Description</span>
+                    </a>
+                </li>
+            }
             <li>
                 <a title="Визитные карточки" href="/ru/Category/BusinessCards" class="">
                     <span class="menutext">Визитные карточки</span>
@@ -48,6 +59,7 @@
                     <a class="clearfix" href="/ru/Category/BusinessCards">
                         <img src="/" alt="Визитные карточки"  class="img-responsive">
                         <div class="s-desc">Визитные карточки</div>
+                        @ViewLocalizer["Products"]
                     </a>
                 </div>
             </div>
