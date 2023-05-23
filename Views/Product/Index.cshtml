@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer ViewLocalizer
+@model Product
+
+test
+@Model.Price
+<br />
+@Model.Description
+<form method="post" action="~/Product/AddToCart/@Model.Id">
+    <button type="submit">@ViewLocalizer["AddToCart"]</button>
+</form>
