@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@model ICollection<Product>
+@inject IViewLocalizer ViewLocalizer
+
+@if(Model is null){
+    <div>@ViewLocalizer["EmptyCart"]</div>
+}
+else{
+    <div class="cartRow">
+    @foreach(var product in Model)
+    {
+        <div>
+            <form action="Delete">
+                <input type="hidden" name="id" value="@product.Id" /> 
+                <div>@product.Description</div>
+                <div>@product.Price</div>
+                <div><button type="submit">X</button></div>
+            </form>
+        </div>
+    }
+    </div>
+}

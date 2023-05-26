@@ -24,7 +24,7 @@ namespace PrintSite.Controllers
         [Route("Product/{id}")]
         public IActionResult Index(int id)
         {
-            var result = _context.Products.Where(x => x.Id == id).SingleOrDefault();
+            var result = _context.Products.Include(x=>x.ShoppingCarts).ThenInclude(x=>x.CartUser).Where(x => x.Id == id).SingleOrDefault();
             return View(result);
         }
 
@@ -37,22 +37,27 @@ namespace PrintSite.Controllers
             else
             {
                 var product = _context.Products.SingleOrDefault(x => x.Id == id);
+                if (product == null) return Redirect("~/");
                 var userName = User.FindFirstValue(ClaimTypes.Name);
-                var cart = _context.ShoppingCarts.Where(x => x.CartUser.UserName == User.Identity.Name).SingleOrDefault();
-                IdentityUser user = _userManager.GetUserAsync(User).Result;
+                var cart = _context.ShoppingCarts.Include(x=>x.Products).Where(x => x.CartUser.UserName == User.Identity.Name).SingleOrDefault();
                 if (cart == null)
                 {
+                    IdentityUser user = _userManager.GetUserAsync(User).Result;
                     _context.ShoppingCarts.Add(new ShoppingCart
                     {
                         CartUser = user,
-                        Products = new List<Product>() { }
+                        Products = new List<Product>() {product }
                     });
 
                     _context.SaveChanges();
                 }
-
-                _context.ShoppingCarts.Single(x => x.CartUser == user).Products.Add(product);
-                _context.SaveChanges();
+                else
+                {
+                    cart.Products.Add(product);
+                    _context.SaveChanges();
+                }
+                
+                
             }
 
             return Redirect("~/Product/" + id);

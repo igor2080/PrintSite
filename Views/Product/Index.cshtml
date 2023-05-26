@@ -7,5 +7,13 @@ test
 <br />
 @Model.Description
 <form method="post" action="~/Product/AddToCart/@Model.Id">
-    <button type="submit">@ViewLocalizer["AddToCart"]</button>
+    @if (User.Identity is not null && Model.ShoppingCarts.Any(x => x.CartUser.UserName == User.Identity.Name))
+    {
+        <button type="button" disabled>@ViewLocalizer["AlreadyInCart"]</button>
+    }
+    else
+    {
+        <button type="submit">@ViewLocalizer["AddToCart"]</button>
+    }
+
 </form>

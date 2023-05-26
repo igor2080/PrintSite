@@ -1,0 +1,22 @@
+﻿@using Microsoft.EntityFrameworkCore;
+@using PrintSite.Data;
+@inject ApplicationDbContext context
+
+@{
+    var count = context.ShoppingCarts
+                        .Include(x => x.Products)
+                        .SingleOrDefault(x => x.CartUser.UserName == User.Identity.Name)
+                        .Products.Count;
+}
+<span>
+    <a asp-action="Cart" asp-controller="Shopping">
+        @if (count < 1)
+        {
+            @:The cart is empty
+        }
+        else
+        {
+            @:Items in cart: @count
+        }
+    </a>
+</span>
