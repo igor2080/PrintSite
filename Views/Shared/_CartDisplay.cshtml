@@ -3,10 +3,17 @@
 @inject ApplicationDbContext context
 
 @{
-    var count = context.ShoppingCarts
-                        .Include(x => x.Products)
-                        .SingleOrDefault(x => x.CartUser.UserName == User.Identity.Name)
-                        .Products.Count;
+    int? count = 0;
+    try
+    {
+
+
+        count = context.ShoppingCarts?
+                            .Include(x => x.Products)?
+                            .SingleOrDefault(x => x.CartUser.UserName == User.Identity.Name)?
+                            .Products.Count;
+    }
+    catch{}
 }
 <span>
     <a asp-action="Cart" asp-controller="Shopping">

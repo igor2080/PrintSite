@@ -55,8 +55,5 @@ namespace PrintSite.Controllers
             }
             return RedirectToAction("Cart", "Shopping");
         }
-        
-        //partial for the count on the layout
-
     }
 }
