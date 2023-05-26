@@ -1,41 +1,22 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer ViewLocalizer
+@model List<Product>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="mainbody row container">
     <div class="col-sm-3 sideMenu Reg body">
         <ul class="body menus">
-            <li>
-                <a title="Визитные карточки" href="/ru/Category/BusinessCards" class="">
-                    <span class="menutext">Визитные карточки</span>
-                    <i class="fa fa-angle-right "></i>
-                </a>
-            </li>
-
-            <li>
-                <a title="Бухгалтерские книги" href="/ru/Category/Pinkasim" class="">
-                    <span class="menutext">Бухгалтерские книги</span>
-                    <i class="fa fa-angle-right "></i>
-                </a>
-            </li>
-            <li>
-                <a title="Наклейки" href="/ru/Category/Stickers" class="">
-                    <span class="menutext">Наклейки</span>
-                    <i class="fa fa-angle-right "></i>
-                </a>
-            </li>
-            <li>
-                <a title="Приглашения" href="/ru/Category/Cards" class="">
-                    <span class="menutext">Открытки</span>
-                    <i class="fa fa-angle-right "></i>
-                </a>
-            </li>
-            <li>
-                <a title="Конверты" href="/ru/Category/Envelopes" class="">
-                    <span class="menutext">Конверты</span>
-                    <i class="fa fa-angle-right "></i>
-                </a>
-            </li>
+            @foreach(var item in Model)
+            {
+                <li>
+                    <a title="@item.Description" href="~/Product/@item.Id">
+                        <span class="menutext">@item.Description</span>
+                    </a>
+                </li>
+            }
+            
         </ul>
     </div>
 
@@ -48,6 +29,7 @@
                     <a class="clearfix" href="/ru/Category/BusinessCards">
                         <img src="/" alt="Визитные карточки"  class="img-responsive">
                         <div class="s-desc">Визитные карточки</div>
+                        @ViewLocalizer["Products"]
                     </a>
                 </div>
             </div>
