@@ -90,6 +90,7 @@ namespace PrintSite.Controllers
             {
                 existingOrder.Price = order.Price;
                 existingOrder.Status = order.Status;
+                _context.SaveChanges();
             }
             return RedirectToAction("Orders");
         }
