@@ -1,0 +1,26 @@
+﻿@model PrintSite.Models.Order
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="OrderEdit">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Products" class="control-label"></label>
+                <select asp-for="Products" >
+                    @foreach (var item in Model.Products)
+                    {
+                        <option>@item.Description</option>
+                    }
+                </select>
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <label asp-for="Status.Status" class="control-label"></label>
+                <input asp-for="Status.Status" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input asp-action="OrderEdit" type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

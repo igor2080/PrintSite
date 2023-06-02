@@ -2,29 +2,37 @@
 @model ICollection<Product>
 @inject IViewLocalizer ViewLocalizer
 
-@if(Model is null){
+@if (Model is null)
+{
     <div>@ViewLocalizer["EmptyCart"]</div>
 }
-else{
-    @if(Model.Count>0)
+else
+{
+    @if (Model.Count > 0)
     {
-        <div style="display:flex; justify-content: space-between;">
+        <div class="cart-header">
             <div>@ViewLocalizer["description"]</div>
             <div>@ViewLocalizer["price"]</div>
             <div>@ViewLocalizer["delete"]?</div>
         </div>
     }
     <div class="cartRow">
-    @foreach(var product in Model)
-    {
-        <div>
-            <form action="Delete">
-                <input type="hidden" name="id" value="@product.Id" /> 
-                <div>@product.Description</div>
-                <div>@product.Price</div>
-                <div><button type="submit">X</button></div>
-            </form>
-        </div>
-    }
+        @foreach (var product in Model)
+        {
+            <div>
+                <form action="ShoppingItemDelete">
+                    <input type="hidden" name="id" value="@product.Id" />
+                    <div>@product.Description</div>
+                    <div>@product.Price</div>
+                    <div><button type="submit">X</button></div>
+                </form>
+            </div>
+        }
     </div>
+    @if (Model.Count > 0)
+    {
+        <form method="post">
+            <button asp-action="AddOrder" asp-controller="Shopping">@ViewLocalizer["makeorder"]</button>
+        </form>
+    }
 }

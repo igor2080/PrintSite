@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using PrintSite.Data;
 using PrintSite.Models;
@@ -22,6 +23,12 @@ namespace PrintSite.Controllers
         {
             var products = _context.Products.ToList();
             return View(products);
+        }
+
+        public IActionResult Orders()
+        {
+            var orders = _context.Orders.Include(x => x.Products).Include(x => x.Status).ToList();
+            return View(orders);
         }
 
         public IActionResult ToggleProductVisibility(int id)
@@ -68,6 +75,30 @@ namespace PrintSite.Controllers
             _context.Products.Add(product);
             _context.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public IActionResult OrderEdit(int id)
+        {
+            var order = _context.Orders.Include(x => x.Products).Include(x => x.Status).SingleOrDefault(x => x.Id == id);
+            return View(order);
+        }
+        [HttpPost]
+        public IActionResult OrderEdit(Order order)
+        {
+            var existingOrder = _context.Orders.SingleOrDefault(x => x.Id == order.Id);
+            if (existingOrder != null)
+            {
+                existingOrder.Price = order.Price;
+                existingOrder.Status = order.Status;
+            }
+            return RedirectToAction("Orders");
+        }
+        public IActionResult OrderDelete(int id)
+        {
+            var order = _context.Orders.SingleOrDefault(x => x.Id == id);
+            _context.Orders.Remove(order);
+            _context.SaveChanges();
+            return RedirectToAction("Orders");
         }
     }
 }
