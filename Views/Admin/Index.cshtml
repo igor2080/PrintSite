@@ -2,21 +2,25 @@
 @model List<Product>
 @inject IViewLocalizer ViewLocalizer
 <div class="mainbody row container">
-    <div class="col-sm-9 body">
+    <div>
+        <a asp-action="CreateProduct">Create new product</a>
+    </div>
+    <hr />
+    <div class="body">
         <div id="banner0" class="banners row">
             @foreach (var item in Model)
             {
-                <div>
-                    <div class="banner-box">
-                        <form asp-action="ToggleProductVisibility">
-                            <input type="hidden" name="id" value="@item.Id">
-                            <img src="~/img/product_@item.Id" alt="@item.Description" class="img-responsive">
-                            <div class="s-desc">@item.Description</div>
-                            @ViewLocalizer["placeholder"]
-                            <button type="submit">@(item.Visible ? "Hide" : "Show")</button>
-                        </form>
-
-                    </div>
+                <div class="banner-box @(item.Visible?"":"item-hide")">
+                    <form asp-action="ToggleProductVisibility">
+                        <input type="hidden" name="id" value="@item.Id">
+                        <img src="https://loremflickr.com/320/240/@item.Description.Replace(' ','_')" alt="@item.Description" class="img-responsive">
+                        <span class="s-desc">@ViewLocalizer[@item.Description]</span>
+                        <button type="submit">@(item.Visible ? @ViewLocalizer["hide"] : @ViewLocalizer["show"])</button>
+                    </form>
+                    <form asp-action="DeleteProduct">
+                        <input type="hidden" name="id" value="@item.Id">
+                        <button type="submit">@ViewLocalizer["delete"]</button>
+                    </form>
                 </div>
             }
         </div>

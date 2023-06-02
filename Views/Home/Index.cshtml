@@ -25,14 +25,11 @@
             @foreach (var item in Model)
             {
                 @if (!item.Visible) continue;
-                <div>
-                    <div class="banner-box">
-                        <a class="clearfix" href="~/product/@item.Id">
-                            <img src="~/img/product_@item.Id" alt="@item.Description" class="img-responsive">
-                            <div class="s-desc">@item.Description</div>
-                            @ViewLocalizer["placeholder"]
-                        </a>
-                    </div>
+                <div class="banner-box">
+                    <a class="clearfix" href="~/product/@item.Id">
+                        <img src="https://loremflickr.com/320/240/@item.Description.Replace(' ','_')" alt="@item.Description" class="img-responsive">
+                        <span class="s-desc">@ViewLocalizer[@item.Description]</span>
+                    </a>
                 </div>
             }
         </div>
