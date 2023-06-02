@@ -21,11 +21,16 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <partial class="pull-right" name="_CartDisplay" />
+                    @if (User.IsInRole("admin"))
+                    {
+                        <partial class="pull-right" name="_AdminPanel" />
+                    }
                 }
                 <partial class="pull-right" name="_LoginPartial" />
+
             </div>
             <div class="col-sm-12 nopad">
-                <img src="~/img/sitelogo.png" />
+                <a href="~/"><img src="~/img/sitelogo.png" /></a>
             </div>
         </div>
 

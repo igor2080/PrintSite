@@ -24,8 +24,11 @@ namespace PrintSite.Controllers
         [Route("Product/{id}")]
         public IActionResult Index(int id)
         {
-            var result = _context.Products.Include(x=>x.ShoppingCarts).ThenInclude(x=>x.CartUser).Where(x => x.Id == id).SingleOrDefault();
-            return View(result);
+            var result = _context.Products.Include(x => x.ShoppingCarts).ThenInclude(x => x.CartUser).Where(x => x.Id == id).SingleOrDefault();
+            if (result.Visible)
+                return View(result);
+
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -39,14 +42,14 @@ namespace PrintSite.Controllers
                 var product = _context.Products.SingleOrDefault(x => x.Id == id);
                 if (product == null) return Redirect("~/");
                 var userName = User.FindFirstValue(ClaimTypes.Name);
-                var cart = _context.ShoppingCarts.Include(x=>x.Products).Where(x => x.CartUser.UserName == User.Identity.Name).SingleOrDefault();
+                var cart = _context.ShoppingCarts.Include(x => x.Products).Where(x => x.CartUser.UserName == User.Identity.Name).SingleOrDefault();
                 if (cart == null)
                 {
                     IdentityUser user = _userManager.GetUserAsync(User).Result;
                     _context.ShoppingCarts.Add(new ShoppingCart
                     {
                         CartUser = user,
-                        Products = new List<Product>() {product }
+                        Products = new List<Product>() { product }
                     });
 
                     _context.SaveChanges();
@@ -56,8 +59,6 @@ namespace PrintSite.Controllers
                     cart.Products.Add(product);
                     _context.SaveChanges();
                 }
-                
-                
             }
 
             return Redirect("~/Product/" + id);

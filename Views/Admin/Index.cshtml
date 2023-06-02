@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@model List<Product>
+@inject IViewLocalizer ViewLocalizer
+<div class="mainbody row container">
+    <div class="col-sm-9 body">
+        <div id="banner0" class="banners row">
+            @foreach (var item in Model)
+            {
+                <div>
+                    <div class="banner-box">
+                        <form asp-action="ToggleProductVisibility">
+                            <input type="hidden" name="id" value="@item.Id">
+                            <img src="~/img/product_@item.Id" alt="@item.Description" class="img-responsive">
+                            <div class="s-desc">@item.Description</div>
+                            @ViewLocalizer["placeholder"]
+                            <button type="submit">@(item.Visible ? "Hide" : "Show")</button>
+                        </form>
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -45,11 +45,10 @@ namespace PrintSite.Data
                 });
             builder.Entity<Product>().HasKey(x => x.Id);
             builder.Entity<Product>().HasData(
-                new Product { Id = ProductKey++, Description = "Business cards", Price = 10 },
-                new Product { Id = ProductKey++, Description = "Envelopes", Price = 15 },
-                new Product { Id = ProductKey++, Description = "Stickers", Price = 7.5f });
+                new Product { Id = ProductKey++, Description = "Business cards", Price = 10, Visible = true },
+                new Product { Id = ProductKey++, Description = "Envelopes", Price = 15, Visible = true },
+                new Product { Id = ProductKey++, Description = "Stickers", Price = 7.5f, Visible = true });
             base.OnModelCreating(builder);
         }
-
     }
 }

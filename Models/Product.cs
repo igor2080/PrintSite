@@ -8,6 +8,8 @@
 
         public float Price { get; set; }
 
+        public bool Visible { get; set; } = true;
+
         public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
