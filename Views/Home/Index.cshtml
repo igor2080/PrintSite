@@ -8,33 +8,30 @@
 <div class="mainbody row container">
     <div class="col-sm-3 sideMenu Reg body">
         <ul class="body menus">
-            @foreach(var item in Model)
+            @foreach (var item in Model)
             {
+                @if (!item.Visible) continue;
                 <li>
                     <a title="@item.Description" href="~/Product/@item.Id">
                         <span class="menutext">@item.Description</span>
                     </a>
                 </li>
             }
-            
         </ul>
     </div>
 
     <div class="col-sm-9 body">
-
-
         <div id="banner0" class="banners row">
-            <div class="col-sm-4" style="opacity: 1; left: 0px;">
+            @foreach (var item in Model)
+            {
+                @if (!item.Visible) continue;
                 <div class="banner-box">
-                    <a class="clearfix" href="/ru/Category/BusinessCards">
-                        <img src="/" alt="Визитные карточки"  class="img-responsive">
-                        <div class="s-desc">Визитные карточки</div>
-                        @ViewLocalizer["Products"]
+                    <a class="clearfix" href="~/product/@item.Id">
+                        <img src="https://loremflickr.com/320/240/@item.Description.Replace(' ','_')" alt="@item.Description" class="img-responsive">
+                        <span class="s-desc">@ViewLocalizer[@item.Description]</span>
                     </a>
                 </div>
-            </div>
+            }
         </div>
-
     </div>
-
 </div>

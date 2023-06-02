@@ -34,9 +34,9 @@ namespace PrintSite.Controllers
         public IActionResult Cart()
         {
             var cart = _context.ShoppingCarts.Include(x => x.Products).SingleOrDefault(x => x.CartUser.UserName == User.Identity.Name);
-            if (cart is null)
+            if (cart is null || cart.Products.Count<1)
             {
-                return View(null);
+                return RedirectToAction("Index", "Home");
             }
             return View(cart.Products);
         }
@@ -55,8 +55,5 @@ namespace PrintSite.Controllers
             }
             return RedirectToAction("Cart", "Shopping");
         }
-        
-        //partial for the count on the layout
-
     }
 }

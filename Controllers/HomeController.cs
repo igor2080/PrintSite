@@ -20,6 +20,7 @@ namespace PrintSite.Controllers
 
         public IActionResult Index()
         {
+
             return View(_context.Products.ToList());
         }
 

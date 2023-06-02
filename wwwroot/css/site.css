@@ -25,40 +25,13 @@ body {
     display: flex;
     justify-content: space-between;
 }
-header ul{
-    list-style-type:none;
+
+header ul {
+    list-style-type: none;
 }
 
-
-#statementText a {
-    position: absolute;
-    left: 1%;
-    top: 4%;
-    font-size: 175%;
-}
-
-
-
-.overlay {
-    width: 100% !important;
-    height: 100% !important;
-    top: 0 !important;
-    left: 0 !important;
-    background: rgba(0, 0, 0, 0.7) !important;
-    position: fixed;
-    z-index: 99999;
-}
-
-#OrderTable tr td, #OrderTable tr th {
-    border: 1px solid black;
-}
-
-#OrderTable tr th {
-    background-color: #e3e3e3;
-}
-
-.hider {
-    display: none;
+.item-hide {
+    opacity: 0.2;
 }
 
 .text-left {
@@ -73,53 +46,35 @@ header ul{
     color: white;
     background-color: #3eb6de;
 }
-
-.inactiveTab {
-    display: none;
-}
-
-.activeTab {
-    display: block;
-}
-
-#accessMenu div {
-    margin-top: 5%;
-}
-
-#accessMenu, .switches {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
-}
-
-.priceTable {
-    text-align: center;
-}
-
 .clearfix > img {
     margin: auto;
     width: 67%;
     height: 75%;
 }
 
+.banners {
+    display: flex;
+    flex-wrap:wrap;
+}
+
 .banners > div {
+    flex-basis: 33.333%;
     text-align: center;
     margin-bottom: 30px;
     min-width: 250px;
-    height: 184px;
+    
 }
 
     .banners > div div.banner-box {
         position: relative;
-        height: 184px;
+        
     }
 
     .banners > div a {
         vertical-align: top;
         display: block;
         border: 1px solid #efefef;
-        height: 184px;
+        
     }
 
         .banners > div a:hover {
@@ -127,7 +82,6 @@ header ul{
         }
 
     .banners > div .s-desc {
-        position: absolute;
         display: inline-block;
         bottom: 7%;
         left: 5%;
@@ -147,25 +101,6 @@ th {
     text-align: center;
 }
 
-.dashlist {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-    .dashlist > li {
-        text-indent: -5px;
-    }
-
-    .dashlist li:before {
-        content: "-";
-        text-indent: -5px;
-    }
-
-.hebrewlist li:before {
-    margin-left: 0.5%;
-}
-
 .minispaced {
     padding-top: 0.5%;
     padding-bottom: 0.5%;
@@ -176,28 +111,9 @@ th {
     padding-bottom: 2%;
 }
 
-.manualHover {
-    color: #3eb6de !important;
-    outline: 0;
-}
-
-    .manualHover span {
-        color: #3eb6de !important;
-        -webkit-transition: all .6s ease 0s;
-        -moz-transition: all .6s ease 0s;
-        -o-transition: all .6s ease 0s;
-        transition: all .6s ease 0s;
-    }
-
-    .manualHover i {
-        margin-left: -5px;
-        margin-right: 5px;
-    }
-
 .main {
     margin-right: auto;
     margin-left: auto;
-    max-width: 1200px;
 }
 
 .control-label {
@@ -218,48 +134,6 @@ th {
     .bluebox a {
         color: white;
         text-decoration: none;
-    }
-
-.tbl tr th {
-    border: 1px solid black;
-    text-align: center;
-    background-color: #ededed;
-}
-
-.tbl tr td {
-    text-align: center;
-}
-
-.finalPrice {
-    color: white;
-    font-size: 0.9em;
-    font-weight: bold;
-    text-align: center;
-}
-
-.priceDescription {
-    display: none;
-}
-
-.orderText {
-    margin-top: 1%;
-    margin-bottom: 1%;
-    line-height: 17px;
-    font-size: 14px;
-    font-family: david;
-}
-
-    .orderText p {
-        margin: 0;
-    }
-
-.orderDetails {
-    margin-top: 9.3%;
-}
-
-    .orderDetails div {
-        border: 1px solid #333;
-        min-height: 31.38em;
     }
 
 header img {
@@ -296,73 +170,6 @@ a {
 
     a:hover {
         transition: all .6s ease 0s;
-    }
-
-
-
-input[type=submit] {
-    -webkit-transition: all .6s ease 0s;
-    -moz-transition: all .6s ease 0s;
-    -o-transition: all .6s ease 0s;
-    transition: all .6s ease 0s;
-}
-
-
-.authNav {
-    background-color: #333;
-    height: 50px;
-    color: white;
-    margin: auto;
-}
-
-    .authNav ul {
-        display: inline-block;
-        float: none;
-        text-align: center;
-    }
-
-        .authNav ul > li > a {
-            color: white;
-            font-size: 16px;
-        }
-
-
-    .authNav li > a:hover {
-        color: black;
-    }
-
-.box-cart {
-    line-height: 2.9em;
-    width: 4.2em;
-    background-color: #3eb6de;
-    color: white;
-    font-size: 24px;
-    padding: 0 18px;
-    -webkit-transition: all .6s ease 0s;
-    -moz-transition: all .6s ease 0s;
-    -o-transition: all .6s ease 0s;
-    transition: all .6s ease 0s;
-    position: absolute;
-    left: 0;
-    height: 70px;
-    display: flex;
-    cursor: pointer;
-}
-
-    .box-cart:hover {
-        background-color: #52caf2;
-    }
-
-    .box-cart i {
-        line-height: 70px;
-    }
-
-    .box-cart span {
-        line-height: 73px;
-    }
-
-    .box-cart span, .box-cart i {
-        margin-right: 18%;
     }
 
 .topNavReg {
@@ -402,23 +209,15 @@ input[type=submit] {
         text-decoration: none;
     }
 
-
-
         .topMenu li a i.fa-angle-left, .topMenu li a i.fa-angle-right {
             font-size: 17px;
             color: #3eb6de;
-            -webkit-transition: all .6s ease 0s;
-            -moz-transition: all .6s ease 0s;
-            -o-transition: all .6s ease 0s;
             transition: all .6s ease 0s;
         }
 
         .topMenu li a i.fa-home {
             font-size: 24px;
             color: #fff;
-            -webkit-transition: all .6s ease 0s;
-            -moz-transition: all .6s ease 0s;
-            -o-transition: all .6s ease 0s;
             transition: all .6s ease 0s;
         }
 
@@ -437,9 +236,6 @@ input[type=submit] {
         font-size: 17px;
         font-weight: 500;
         padding-right: 2px;
-        -webkit-transition: all .6s ease 0s;
-        -moz-transition: all .6s ease 0s;
-        -o-transition: all .6s ease 0s;
         transition: all .6s ease 0s;
     }
 
@@ -450,14 +246,8 @@ input[type=submit] {
 
 .topMenu li a:hover > span, .topMenu li a:hover > i.fa-home {
     color: #3eb6de;
-    -webkit-transition: all .6s ease 0s;
-    -moz-transition: all .6s ease 0s;
-    -o-transition: all .6s ease 0s;
     transition: all .6s ease 0s;
 }
-
-
-
 .box-title h3 {
     background: #3eb6de;
     font-size: 1.8em;
@@ -494,6 +284,10 @@ input[type=submit] {
 .nopad {
     padding-left: 0;
     padding-right: 0;
+}
+
+.row.nopad.languages > *, .navbar-nav .nav-item>* {
+    
 }
 
 .nopads {
@@ -565,9 +359,6 @@ input[type=submit] {
     float: left;
     line-height: 18px;
     color: #47c7de;
-    -webkit-transition: all .6s ease 0s;
-    -moz-transition: all .6s ease 0s;
-    -o-transition: all .6s ease 0s;
     transition: all .6s ease 0s;
 }
 
@@ -575,17 +366,12 @@ input[type=submit] {
     float: right;
     line-height: 18px;
     color: #47c7de;
-    -webkit-transition: all .6s ease 0s;
-    -moz-transition: all .6s ease 0s;
-    -o-transition: all .6s ease 0s;
     transition: all .6s ease 0s;
 }
 
 .sideMenu ul li a:hover {
     color: #3eb6de;
 }
-
-
 .sidemenu ul li a span {
     font-size: 2em;
 }
@@ -597,107 +383,10 @@ input[type=submit] {
 .sideTitle {
     text-align: right;
 }
-
     .sideTitle h2 {
         margin: 0;
         padding: 0 3% 3% 0;
     }
-
-.optionText {
-    padding-top: 1%;
-}
-
-    .optionText span {
-        font-size: 18px;
-        display: block;
-        margin: 0 0 28.5% 0;
-    }
-
-.optionChoice select {
-    margin-bottom: 10%;
-}
-
-.blueButton {
-    display: inline-block;
-    width: 100%;
-    height: 2.5em;
-    background-color: #3eb6de;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    /*margin-bottom: 10%;*/
-    -webkit-transition: all .6s ease 0s;
-    -moz-transition: all .6s ease 0s;
-    -o-transition: all .6s ease 0s;
-    transition: all .6s ease 0s;
-    position: relative;
-}
-
-    .blueButton:disabled {
-        display: inline-block;
-        width: 100%;
-        height: 2.5em;
-        background-color: #bfc6c9;
-        text-align: center;
-        text-decoration: none;
-        color: black;
-        /*margin-bottom: 10%;*/
-        -webkit-transition: all .6s ease 0s;
-        -moz-transition: all .6s ease 0s;
-        -o-transition: all .6s ease 0s;
-        transition: all .6s ease 0s;
-        position: relative;
-    }
-
-    .blueButton:hover:enabled {
-        background-color: #4dc9f2;
-        color: white;
-        cursor: pointer;
-        -webkit-transition: all .6s ease 0s;
-        -moz-transition: all .6s ease 0s;
-        -o-transition: all .6s ease 0s;
-        transition: all .6s ease 0s;
-    }
-
-    .blueButton span {
-        display: inline-block;
-        font-size: 16px;
-        font-weight: bold;
-        position: absolute;
-        height: 10px;
-        left: 0;
-        width: 100%;
-    }
-
-    .blueButton.orange {
-        background-color: darkorange;
-    }
-
-        .blueButton.orange:hover {
-            background-color: orange;
-        }
-
-
-#logoutForm {
-    width: 100%;
-}
-
-.loginForm > div {
-    background-color: #f9f9f9;
-    border: 1px solid #efefef;
-}
-
-    .loginForm > div > div {
-        padding: 0 10%;
-    }
-
-
-.graybox {
-    padding: 15px;
-    background-color: #f9f9f9;
-    border: 3px solid #efefef;
-    height: 25em;
-}
 
 .required:before {
     content: "*";
@@ -705,11 +394,9 @@ input[type=submit] {
     color: deeppink;
 }
 
-
 .loginForm {
     margin: auto 0;
 }
-
     .loginForm > div {
         width: 49%;
         position: relative;
@@ -733,27 +420,3 @@ input[type=submit] {
     .title span:last-child {
         font-weight: bold;
     }
-
-
-.loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-    position: absolute;
-    left: 40%;
-    top: 35%;
-    z-index: 999;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}

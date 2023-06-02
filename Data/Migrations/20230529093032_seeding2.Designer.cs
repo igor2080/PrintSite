@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PrintSite.Data;
 
@@ -11,13 +12,15 @@ using PrintSite.Data;
 namespace PrintSite.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230529093032_seeding2")]
+    partial class seeding2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("ProductVersion", "7.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -157,13 +160,13 @@ namespace PrintSite.Data.Migrations
                         {
                             Id = "d408ddd2-3b69-412a-a8ca-da422c7ee890",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "72ed76d8-0531-4dd1-b7f4-a24a4d259e9b",
+                            ConcurrencyStamp = "a7a08895-7a35-4ad8-b6ef-b714bb7f7384",
                             Email = "admin@printsite.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@printsite.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOYGS3R7/Dz6eyQDupYl+GWzyX7yj8UydnleDOe7wwaC6GYqZi+V/UeV0VXzlGvxFg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHFSMoqQm9E3Fp8ClF7++Zz9U6qLPwh9FqJzLOOvWHlZwHmVda0FSxcwq270rNZA1g==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -336,9 +339,6 @@ namespace PrintSite.Data.Migrations
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
-                    b.Property<bool>("Visible")
-                        .HasColumnType("bit");
-
                     b.HasKey("Id");
 
                     b.ToTable("Products");
@@ -348,22 +348,19 @@ namespace PrintSite.Data.Migrations
                         {
                             Id = 1,
                             Description = "Business cards",
-                            Price = 10f,
-                            Visible = true
+                            Price = 10f
                         },
                         new
                         {
                             Id = 2,
                             Description = "Envelopes",
-                            Price = 15f,
-                            Visible = true
+                            Price = 15f
                         },
                         new
                         {
                             Id = 3,
                             Description = "Stickers",
-                            Price = 7.5f,
-                            Visible = true
+                            Price = 7.5f
                         });
                 });
 
