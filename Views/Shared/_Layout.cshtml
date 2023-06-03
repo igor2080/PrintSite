@@ -8,12 +8,11 @@
     <title>@ViewData["Title"] - PrintSite</title>
     <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
-    <link rel="stylesheet" href="~/PrintSite.styles.css" asp-append-version="true">
 
 </head>
 <body class="main">
     <header>
-        <div class="row container" style="margin-bottom:1%">
+        <div class="row container">
             <div class="row nopad languages" style="padding: 0 15px;">
                 <a class="pull-right" asp-action="SetLanguage" asp-controller="Home" asp-route-language="ru">RU</a>
                 <span class="pull-right bluebar">|</span>
@@ -30,7 +29,7 @@
 
             </div>
             <div class="col-sm-12 nopad">
-                <a href="~/"><img alt="PrintSite" src="~/img/sitelogo.png"></a>
+                <a href="~/"><img alt="PrintSite" src="~/img/sitelogo.png?@DateTime.Now.Microsecond"></a>
             </div>
         </div>
 

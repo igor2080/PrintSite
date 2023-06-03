@@ -156,6 +156,9 @@
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="manage" xml:space="preserve">
+    <value>Manage Site</value>
+  </data>
   <data name="manageorders" xml:space="preserve">
     <value>Manage Orders</value>
   </data>

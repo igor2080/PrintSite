@@ -101,5 +101,39 @@ namespace PrintSite.Controllers
             _context.SaveChanges();
             return RedirectToAction("Orders");
         }
+
+        [HttpGet]
+        public IActionResult Manage()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Manage(IFormFile logo)
+        {
+            if (logo != null)
+            {
+                string SavePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", "sitelogo.png");
+                using (var stream = new FileStream(SavePath, FileMode.OpenOrCreate))
+                {
+                    logo.CopyTo(stream);
+                }
+            }
+            return View();
+        }
+        [HttpPost]
+        public IActionResult ResetLogo()
+        {
+            string originalPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", "sitelogo - backup.png");
+            string SavePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", "sitelogo.png");
+            using (var original = new FileStream(originalPath, FileMode.Open))
+            {
+                using (var stream = new FileStream(SavePath, FileMode.OpenOrCreate))
+                {
+                    original.CopyTo(stream);
+                }
+            }
+            return RedirectToAction("Manage");
+        }
     }
 }

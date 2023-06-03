@@ -1,0 +1,9 @@
+﻿@using PrintSite.Resources;
+@inject SharedLocalization SharedLocalizer
+<form method="post" asp-action="Manage" enctype="multipart/form-data">
+    <input type="file" id="logo" name="logo" />
+    <button type="submit">@SharedLocalizer["save"]</button>
+</form>
+<form method="post" asp-action="ResetLogo" >
+    <button type="submit">↻</button>
+</form>
