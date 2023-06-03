@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using PrintSite.Data;
@@ -24,9 +25,24 @@ namespace PrintSite.Controllers
             return View(_context.Products.ToList());
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
         {
             return View();
+        }
+
+        public IActionResult SetLanguage(string language)
+        {
+            try
+            {
+                var culture = new RequestCulture(language);
+                Response.Cookies.Append(
+                    CookieRequestCultureProvider.DefaultCookieName,
+                    CookieRequestCultureProvider.MakeCookieValue(culture)
+                    );
+            }
+            catch { }
+            
+            return Redirect(Request.Headers["referer"]);
         }
 
     }

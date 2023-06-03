@@ -21,6 +21,14 @@ body {
     margin-bottom: 60px;
 }
 
+.product-desc{
+    text-align:center;
+    line-height:2em;
+}
+div.product-desc{
+    font-weight:bold;
+}
+
 .cartRow div form, .cart-header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

@@ -117,73 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="about" xml:space="preserve">
-    <value>About</value>
-  </data>
-  <data name="create" xml:space="preserve">
-    <value>Create</value>
+  <data name="createproduct" xml:space="preserve">
+    <value>Create new product</value>
   </data>
   <data name="delete" xml:space="preserve">
     <value>Delete</value>
   </data>
-  <data name="delete_header" xml:space="preserve">
-    <value>Delete</value>
+  <data name="hide" xml:space="preserve">
+    <value>Hide</value>
   </data>
-  <data name="description" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="edit" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="edit_header" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="email" xml:space="preserve">
-    <value>Email</value>
-  </data>
-  <data name="emptycart" xml:space="preserve">
-    <value>The cart is empty</value>
-  </data>
-  <data name="Hello" xml:space="preserve">
-    <value>Hello</value>
-  </data>
-  <data name="itemsincart" xml:space="preserve">
-    <value>Items in cart</value>
-  </data>
-  <data name="Login" xml:space="preserve">
-    <value>Login</value>
-  </data>
-  <data name="Logout" xml:space="preserve">
-    <value>Logout</value>
-  </data>
-  <data name="manageorders" xml:space="preserve">
-    <value>Manage Orders</value>
-  </data>
-  <data name="manageproducts" xml:space="preserve">
-    <value>Manage Products</value>
-  </data>
-  <data name="password" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="passwordconfirm" xml:space="preserve">
-    <value>Confirm Password</value>
-  </data>
-  <data name="price" xml:space="preserve">
-    <value>Price</value>
-  </data>
-  <data name="products" xml:space="preserve">
-    <value>Products</value>
-  </data>
-  <data name="Register" xml:space="preserve">
-    <value>Register</value>
-  </data>
-  <data name="rememberme" xml:space="preserve">
-    <value>Remember me</value>
-  </data>
-  <data name="save" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="status" xml:space="preserve">
-    <value>Status</value>
+  <data name="show" xml:space="preserve">
+    <value>Show</value>
   </data>
 </root>

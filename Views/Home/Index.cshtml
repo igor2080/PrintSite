@@ -1,9 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using PrintSite.Resources;
 @inject IViewLocalizer ViewLocalizer
+@inject SharedLocalization SharedLocalizer
 @model List<Product>
-@{
-    ViewData["Title"] = "Home Page";
-}
 
 <div class="mainbody row container">
     <div class="col-sm-3 sideMenu Reg body">
@@ -12,8 +11,8 @@
             {
                 @if (!item.Visible) continue;
                 <li>
-                    <a title="@item.Description" href="~/Product/@item.Id">
-                        <span class="menutext">@item.Description</span>
+                    <a title="@SharedLocalizer[item.Description]" href="~/Product/@item.Id">
+                        <span class="menutext">@SharedLocalizer[item.Description]</span>
                     </a>
                 </li>
             }
@@ -28,7 +27,7 @@
                 <div class="banner-box">
                     <a class="clearfix" href="~/product/@item.Id">
                         <img src="https://loremflickr.com/320/240/@item.Description.Replace(' ','_')" alt="@item.Description" class="img-responsive">
-                        <span class="s-desc">@ViewLocalizer[@item.Description]</span>
+                        <span class="s-desc">@ViewLocalizer[item.Description]</span>
                     </a>
                 </div>
             }

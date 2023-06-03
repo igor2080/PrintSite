@@ -2,18 +2,29 @@
 @inject IViewLocalizer ViewLocalizer
 @model Product
 
-test
-@Model.Price
-<br />
-@Model.Description
-<form method="post" action="~/Product/AddToCart/@Model.Id">
-    @if (User.Identity is not null && Model.ShoppingCarts.Any(x => x.CartUser.UserName == User.Identity.Name))
-    {
-        <button type="button" disabled>@ViewLocalizer["AlreadyInCart"]</button>
-    }
-    else
-    {
-        <button type="submit">@ViewLocalizer["AddToCart"]</button>
-    }
+<div class="col-sm-3 body">
+    
+    <div class="product-desc">@ViewLocalizer[Model.Description]</div>
+    <div class="product-desc">$@Model.Price</div>
+    <form class="product-desc" method="post" action="~/Product/AddToCart/@Model.Id">
+        @if (User.Identity is not null && Model.ShoppingCarts.Any(x => x.CartUser.UserName == User.Identity.Name))
+        {
+            <button type="button" disabled>@ViewLocalizer["alreadyincart"]</button>
+        }
+        else
+        {
+            <button type="submit">@ViewLocalizer["addtocart"]</button>
+        }
 
-</form>
+    </form>
+</div>
+<div class="col-sm-9 body">
+    <div id="banner0" class="row">
+        <div class="banner-box">
+            <img src="https://loremflickr.com/320/240/@Model.Description.Replace(' ','_')" alt="@Model.Description" class="img-responsive">
+        </div>
+
+    </div>
+</div>
+
+
