@@ -21,6 +21,14 @@ body {
     margin-bottom: 60px;
 }
 
+.done{
+    color:forestgreen
+}
+
+.missing{
+    color:orangered;
+}
+
 .product-desc{
     text-align:center;
     line-height:2em;
