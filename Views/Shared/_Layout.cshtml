@@ -15,9 +15,9 @@
     <header>
         <div class="row container" style="margin-bottom:1%">
             <div class="row nopad languages" style="padding: 0 15px;">
-                <a class="pull-right" href="/RU">RU</a>
+                <a class="pull-right" asp-action="SetLanguage" asp-controller="Home" asp-route-language="ru">RU</a>
                 <span class="pull-right bluebar">|</span>
-                <a class="pull-right" href="/">עברית</a>
+                <a class="pull-right" asp-action="SetLanguage" asp-controller="Home" asp-route-language="en-US">EN</a>
                 @if (User.Identity.IsAuthenticated)
                 {
                     <partial class="pull-right" name="_CartDisplay" />
@@ -68,7 +68,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - PrintSite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - PrintSite
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

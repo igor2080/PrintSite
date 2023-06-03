@@ -1,7 +1,8 @@
 ﻿@using Microsoft.EntityFrameworkCore;
 @using PrintSite.Data;
 @inject ApplicationDbContext context
-
+@using PrintSite.Resources;
+@inject SharedLocalization SharedLocalizer
 @{
     int? count = 0;
     try
@@ -17,11 +18,11 @@
     | <a asp-action="Cart" asp-controller="Shopping">
         @if (count is null || count < 1)
         {
-            @:The cart is empty
+            @:@SharedLocalizer["emptycart"]
         }
         else
         {
-            @:Items in cart: @count
+            @:@SharedLocalizer["itemsincart"]: @count
         }
     </a>
 </span>

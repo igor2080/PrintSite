@@ -1,4 +1,6 @@
-﻿<span>
-    | <a asp-action="Index" asp-controller="Admin">Manage Products</a> |
-    <a asp-action="Orders" asp-controller="Admin">Manage Orders</a>
+﻿@using PrintSite.Resources;
+@inject SharedLocalization SharedLocalizer
+<span>
+    | <a asp-action="Index" asp-controller="Admin">@SharedLocalizer["manageproducts"]</a> |
+    <a asp-action="Orders" asp-controller="Admin">@SharedLocalizer["manageorders"]</a>
 </span>

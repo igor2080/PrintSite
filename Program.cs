@@ -55,13 +55,16 @@ namespace PrintSite
                 var supportedCultures = new List<CultureInfo>
                 {
                     new CultureInfo("en-US"),
-                    new CultureInfo("ru-RU"),
+                    new CultureInfo("ru"),
                 };
 
                 options.DefaultRequestCulture = new RequestCulture(defaultCulture);
                 options.SupportedCultures = supportedCultures;
                 options.SupportedUICultures = supportedCultures;
+                options.ApplyCurrentCultureToResponseHeaders = true;
                 options.RequestCultureProviders.Insert(0, new QueryStringRequestCultureProvider());
+                options.RequestCultureProviders.Insert(1, new CookieRequestCultureProvider());
+                options.RequestCultureProviders.Insert(2, new AcceptLanguageHeaderRequestCultureProvider());
             });
             var app = builder.Build();
             // Configure the HTTP request pipeline.

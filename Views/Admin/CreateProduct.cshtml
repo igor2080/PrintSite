@@ -1,12 +1,14 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using PrintSite.Resources;
 @inject IViewLocalizer ViewLocalizer
+@inject SharedLocalization SharedLocalizer
 @model List<string>
 <form asp-action="CreateProduct" method="post">
-    <label for="price">Price</label>
+    <label for="price">@SharedLocalizer["price"]</label>
     <input type="number" step="any" name="price" id="price" />
-    <label for="description">Description</label>
+    <label for="description">@SharedLocalizer["description"]</label>
     <input type="text" name="description" id="description" />
-    <button type="submit">Create</button>
+    <button type="submit">@SharedLocalizer["create"]</button>
 </form>
 @if (Model != null && Model.Count > 0)
 {

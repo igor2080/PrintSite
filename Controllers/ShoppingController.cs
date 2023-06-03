@@ -34,14 +34,14 @@ namespace PrintSite.Controllers
         public IActionResult Cart()
         {
             var cart = _context.ShoppingCarts.Include(x => x.Products).SingleOrDefault(x => x.CartUser.UserName == User.Identity.Name);
-            if (cart is null || cart.Products.Count<1)
+            if (cart is null || cart.Products.Count < 1)
             {
                 return RedirectToAction("Index", "Home");
             }
             return View(cart.Products);
         }
 
-        public IActionResult Delete(int id)
+        public IActionResult ShoppingItemDelete(int id)
         {
             var cart = _context.ShoppingCarts.Include(x => x.Products).SingleOrDefault(x => x.CartUser.UserName == User.Identity.Name);
             if (cart is not null)
@@ -54,6 +54,36 @@ namespace PrintSite.Controllers
                 }
             }
             return RedirectToAction("Cart", "Shopping");
+        }
+
+        [HttpPost]
+        public IActionResult AddOrder()
+        {
+            ShoppingCart cart = _context.ShoppingCarts.Include(x => x.Products).Include(x=>x.CartUser).SingleOrDefault(x => x.CartUser.UserName == User.Identity.Name);
+            if (cart == null)
+            {
+                return RedirectToAction("Cart");
+            }
+            else
+            {
+                Order order = new Order()
+                {
+                    Price = cart.Products.Sum(x => x.Price),
+                    Products = cart.Products,
+                    Status = new OrderStatus() { Status = "Sent" },
+                    User = cart.CartUser
+
+                };
+                _context.Orders.Add(order);
+                _context.ShoppingCarts.Remove(cart);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("OrderAdded");
+        }
+
+        public IActionResult OrderAdded()
+        {
+            return View();
         }
     }
 }

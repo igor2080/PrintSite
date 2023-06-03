@@ -21,10 +21,28 @@ body {
     margin-bottom: 60px;
 }
 
-.cartRow div form {
-    display: flex;
-    justify-content: space-between;
+.product-desc{
+    text-align:center;
+    line-height:2em;
 }
+div.product-desc{
+    font-weight:bold;
+}
+
+.cartRow div form, .cart-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.orderRow div form, .order-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
 
 header ul {
     list-style-type: none;
@@ -46,6 +64,7 @@ header ul {
     color: white;
     background-color: #3eb6de;
 }
+
 .clearfix > img {
     margin: auto;
     width: 67%;
@@ -54,44 +73,41 @@ header ul {
 
 .banners {
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
 }
 
-.banners > div {
-    flex-basis: 33.333%;
-    text-align: center;
-    margin-bottom: 30px;
-    min-width: 250px;
-    
-}
-
-    .banners > div div.banner-box {
-        position: relative;
-        
+    .banners > div {
+        flex-basis: 33.333%;
+        text-align: center;
+        margin-bottom: 30px;
+        min-width: 250px;
     }
 
-    .banners > div a {
-        vertical-align: top;
-        display: block;
-        border: 1px solid #efefef;
-        
-    }
-
-        .banners > div a:hover {
-            border-color: #3eb6de;
+        .banners > div div.banner-box {
+            position: relative;
         }
 
-    .banners > div .s-desc {
-        display: inline-block;
-        bottom: 7%;
-        left: 5%;
-        width: 90%;
-        text-align: center;
-        color: #424242;
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 22px;
-    }
+        .banners > div a {
+            vertical-align: top;
+            display: block;
+            border: 1px solid #efefef;
+        }
+
+            .banners > div a:hover {
+                border-color: #3eb6de;
+            }
+
+        .banners > div .s-desc {
+            display: inline-block;
+            bottom: 7%;
+            left: 5%;
+            width: 90%;
+            text-align: center;
+            color: #424242;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+        }
 
 .compressed p {
     margin: 0;
@@ -118,7 +134,6 @@ th {
 
 .control-label {
     width: 100%;
-    text-align: right !important;
     padding-right: 20px;
 }
 
@@ -248,6 +263,7 @@ a {
     color: #3eb6de;
     transition: all .6s ease 0s;
 }
+
 .box-title h3 {
     background: #3eb6de;
     font-size: 1.8em;
@@ -286,8 +302,7 @@ a {
     padding-right: 0;
 }
 
-.row.nopad.languages > *, .navbar-nav .nav-item>* {
-    
+.row.nopad.languages > *, .navbar-nav .nav-item > * {
 }
 
 .nopads {
@@ -372,6 +387,7 @@ a {
 .sideMenu ul li a:hover {
     color: #3eb6de;
 }
+
 .sidemenu ul li a span {
     font-size: 2em;
 }
@@ -383,6 +399,7 @@ a {
 .sideTitle {
     text-align: right;
 }
+
     .sideTitle h2 {
         margin: 0;
         padding: 0 3% 3% 0;
@@ -397,6 +414,7 @@ a {
 .loginForm {
     margin: auto 0;
 }
+
     .loginForm > div {
         width: 49%;
         position: relative;
