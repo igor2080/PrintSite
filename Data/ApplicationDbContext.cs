@@ -29,8 +29,8 @@ namespace PrintSite.Data
                 new IdentityUser
                 {
                     Id = admin_id,
-                    UserName = "admin",
-                    NormalizedUserName = "admin",
+                    UserName = "admin@printsite.com",
+                    NormalizedUserName = "admin@printsite.com",
                     Email = "admin@printsite.com",
                     NormalizedEmail = "admin@printsite.com",
                     EmailConfirmed = true,
