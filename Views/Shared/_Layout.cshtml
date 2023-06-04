@@ -3,34 +3,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - PrintSite</title>
-    <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/PrintSite.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
 
 </head>
 <body class="main">
     <header>
-        <div class="row container" style="margin-bottom:1%">
+        <div class="row container">
             <div class="row nopad languages" style="padding: 0 15px;">
                 <a class="pull-right" asp-action="SetLanguage" asp-controller="Home" asp-route-language="ru">RU</a>
                 <span class="pull-right bluebar">|</span>
                 <a class="pull-right" asp-action="SetLanguage" asp-controller="Home" asp-route-language="en-US">EN</a>
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <partial class="pull-right" name="_CartDisplay" />
+                    <partial class="pull-right" name="_CartDisplay"/>
                     @if (User.IsInRole("admin"))
                     {
-                        <partial class="pull-right" name="_AdminPanel" />
+                        <partial class="pull-right" name="_AdminPanel"/>
                     }
                 }
-                <partial class="pull-right" name="_LoginPartial" />
+                <partial class="pull-right" name="_LoginPartial">
 
             </div>
             <div class="col-sm-12 nopad">
-                <a href="~/"><img src="~/img/sitelogo.png" /></a>
+                <a href="~/"><img alt="PrintSite" src="~/img/sitelogo.png?@DateTime.Now.Microsecond"></a>
             </div>
         </div>
 
@@ -61,7 +60,7 @@
         </div>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main class="pb-3">
             @RenderBody()
         </main>
     </div>
