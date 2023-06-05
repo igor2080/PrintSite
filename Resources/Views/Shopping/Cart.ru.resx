@@ -118,9 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="EmptyCart" xml:space="preserve">
-    <value>The cart contains no items!</value>
+    <value>В корзине нет товаров!</value>
   </data>
   <data name="makeorder" xml:space="preserve">
-    <value>Make an order</value>
+    <value>Сделать заказ</value>
   </data>
 </root>
