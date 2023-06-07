@@ -159,6 +159,9 @@
   <data name="manage" xml:space="preserve">
     <value>Управление сайтом</value>
   </data>
+  <data name="managelogo" xml:space="preserve">
+    <value>Изменить логотип</value>
+  </data>
   <data name="manageorders" xml:space="preserve">
     <value>Управление заказами</value>
   </data>
